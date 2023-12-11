@@ -1,0 +1,26 @@
+.match-game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.tile {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 100px;
+    border: 1px solid;
+}
+
+.tile.disabled {
+    pointer-events: none;
+    background-color: green;
+}
+
+
+.match-game-row {
+    display: flex;
+}
