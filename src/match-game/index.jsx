@@ -63,6 +63,13 @@ export const MatchGame = (props) => {
               // checking last active tile
               if (activeTile && activeTile.tileType != gameObj.tileType) {
                 // flip both digits
+                const newVis = {
+                  ...tileVisibility,
+                  [activeTile.id]: true,
+                  [gameObj.id]: true,
+                };
+                setTileVisibility(newVis);
+
                 setTimeout(() => {
                   const newVis = {
                     ...tileVisibility,
@@ -96,6 +103,7 @@ export const MatchGame = (props) => {
                 setTileVisibility(newVis);
                 setActiveTile(null);
                 setGameState(newGameState);
+                return;
               }
 
               // first pick
@@ -105,6 +113,7 @@ export const MatchGame = (props) => {
               newTileVis[gameObj.id] = !newTileVis[gameObj.id];
               setActiveTile(gameObj);
               setTileVisibility(newTileVis);
+              return;
             }}
             className={`tile ${gameObj.isMatched ? "disabled" : ""}`}
             isActive={tileVisibility[gameObj.id]}
